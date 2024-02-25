@@ -2,6 +2,8 @@ package com.example.sspgui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+
 import java.util.Random;
 
 public class HelloController {
@@ -13,6 +15,8 @@ public class HelloController {
     private Label playerWinText;
     @FXML
     private Label cpuWinText;
+    @FXML
+    private ImageView cpuChoiceImage;
 
     private Random random = new Random();
     private String[] cpuChoice = {"Rock", "Paper", "Scissors"};
