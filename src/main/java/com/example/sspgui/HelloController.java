@@ -2,8 +2,9 @@ package com.example.sspgui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+import java.io.File;
 import java.util.Random;
 
 public class HelloController {
@@ -18,21 +19,24 @@ public class HelloController {
     @FXML
     private ImageView cpuChoiceImage;
 
+
     private Random random = new Random();
     private String[] cpuChoice = {"Rock", "Paper", "Scissors"};
     private int cpuWins = 0;
     private int playerWins = 0;
 
+    Image rock = new Image("src\\main\\images\\rock.jpg");
+    Image paper = new Image("src\\main\\images\\paper.jpg");
+    Image scissors = new Image("src\\main\\images\\scissors.jpg");
+
     @FXML
     protected void scissorsButtonClicked() {
         playRound("Scissors");
     }
-
     @FXML
     protected void paperButtonClicked() {
         playRound("Paper");
     }
-
     @FXML
     protected void rockButtonClicked() {
         playRound("Rock");
@@ -52,6 +56,7 @@ public class HelloController {
         } else if ((cpuChoice[randomChoice].equalsIgnoreCase("Rock") && playerChoice.equalsIgnoreCase("Scissors")) ||
                 (cpuChoice[randomChoice].equalsIgnoreCase("Paper") && playerChoice.equalsIgnoreCase("Rock")) ||
                 (cpuChoice[randomChoice].equalsIgnoreCase("Scissors") && playerChoice.equalsIgnoreCase("Paper"))) {
+
             cpuWins++;
             outcomeText.setStyle("-fx-text-fill: red;");
             outcomeText.setText("You lose!");
