@@ -25,10 +25,6 @@ public class HelloController {
     private int cpuWins = 0;
     private int playerWins = 0;
 
-    Image rock = new Image("src\\main\\images\\rock.jpg");
-    Image paper = new Image("src\\main\\images\\paper.jpg");
-    Image scissors = new Image("src\\main\\images\\scissors.jpg");
-
     @FXML
     protected void scissorsButtonClicked() {
         playRound("Scissors");
@@ -49,6 +45,23 @@ public class HelloController {
 
         int randomChoice = random.nextInt(3);
         cpuText.setText("Cpu chose: " + cpuChoice[randomChoice]);
+        String cpuMove = cpuChoice[randomChoice];
+
+        Image image = null;
+        switch(cpuMove)
+        {
+            case "Rock":
+                image = new Image(new File("src\\main\\images\\rock.jpg").toURI().toString());
+                break;
+            case "Paper":
+                image = new Image(new File("src\\main\\images\\paper.jpg").toURI().toString());
+                break;
+            case "Scissors":
+                image = new Image(new File("src\\main\\images\\scissors.jpg").toURI().toString());
+                break;
+        }
+        cpuChoiceImage.setImage(image);
+
 
         if (cpuChoice[randomChoice].equalsIgnoreCase(playerChoice)) {
             outcomeText.setStyle("-fx-text-fill: black;");
